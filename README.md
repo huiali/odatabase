@@ -45,8 +45,7 @@ public class Test
 |datetimeoffset|DateTimeOffset|
 |time|TimeSpan|
 |tinyint|byte|
-|char|int|
-|bigint|string|
+|char|string|
 |nchar|string|
 |ntext|string|
 |nvarchar|string|
