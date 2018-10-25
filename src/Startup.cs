@@ -26,14 +26,14 @@ namespace ODataBase
             services.AddOData();
 
             var connection = Configuration.GetConnectionString("Test1");
-            services.AddDbContext<TestContext>(options => options.UseSqlServer(connection));
+            services.AddDbContext<WorldContext>(options => options.UseMySQL(connection));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             ODataConventionModelBuilder builder = new ODataConventionModelBuilder(app.ApplicationServices);
-            builder.EntitySet<Test>("Test");
+            builder.EntitySet<City>("City");
             app.UseMvc(routeBuilder =>
             {
                 routeBuilder.MapODataServiceRoute("ODataRoute", "odata", builder.GetEdmModel());
